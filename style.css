@@ -23,13 +23,13 @@ body {
     margin: 0;
     background: radial-gradient(circle at top, #0b1120, #020617 55%);
     color: var(--text);
-    font: 400 16px/1.5 "DM Sans", sans-serif
+    font: 400 16px/1.5 "DM Sans", sans-serif;
 }
 
 .shell {
     max-width: 1440px;
     margin: auto;
-    padding: 0 20px 40px
+    padding: 0 20px 40px;
 }
 
 .header {
@@ -37,7 +37,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-top: 10px
+    padding-top: 10px;
 }
 
 .brand {
