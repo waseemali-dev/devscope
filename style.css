@@ -1,0 +1,738 @@
+* {
+    box-sizing: border-box
+}
+
+html {
+    scroll-behavior: smooth
+}
+
+:root {
+    --bg: #020617;
+    --surface: #0b1120;
+    --surface2: #111827;
+    --text: #e5e7eb;
+    --muted: #9ca3af;
+    --border: #1f2937;
+    --lime: #a3e635;
+    --purple: #a5b4fc;
+    --danger: #f97373;
+    --shadow: 0 18px 60px #000b
+}
+
+body {
+    margin: 0;
+    background: radial-gradient(circle at top, #0b1120, #020617 55%);
+    color: var(--text);
+    font: 400 16px/1.5 "DM Sans", sans-serif
+}
+
+.shell {
+    max-width: 1440px;
+    margin: auto;
+    padding: 0 20px 40px
+}
+
+.header {
+    min-height: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 10px
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text);
+    font: 700 1.15rem "Space Grotesk";
+    letter-spacing: -.05em;
+    text-decoration: none
+}
+
+.brand>span:last-child>span {
+    color: #818cf8
+}
+
+.logo {
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #a3e635, #22c55e);
+    color: #020617;
+    font: 700 .8rem monospace;
+    letter-spacing: -.12em
+}
+
+.logo.small {
+    width: 30px;
+    height: 30px
+}
+
+.header nav {
+    display: none;
+    gap: 28px
+}
+
+.header nav a {
+    color: var(--muted);
+    font-size: .9rem;
+    font-weight: 600;
+    text-decoration: none
+}
+
+.hero {
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    min-height: 560px;
+    align-items: center;
+    overflow: hidden;
+    margin-top: 16px;
+    padding: 56px 24px;
+    border-radius: 28px;
+    background: radial-gradient(circle at 0 0, #22c55e1f, transparent 55%), radial-gradient(circle at 100% 0, #818cf81a, transparent 55%), #020617
+}
+
+.hero:before {
+    content: "";
+    position: absolute;
+    inset: -40%;
+    background: radial-gradient(circle at top, #1e293b80, transparent 60%);
+    opacity: .8
+}
+
+.copy {
+    position: relative;
+    z-index: 2;
+    max-width: 650px
+}
+
+.eyebrow,
+.features>div>small,
+.repo-heading small {
+    color: var(--purple);
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .13em;
+    text-transform: uppercase
+}
+
+.eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 22px
+}
+
+.eyebrow i {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--lime);
+    box-shadow: 0 0 16px #a3e635cc
+}
+
+h1,
+h2,
+h3 {
+    font-family: "Space Grotesk", sans-serif;
+    letter-spacing: -.05em
+}
+
+h1 {
+    max-width: 760px;
+    margin: 0;
+    font-size: clamp(2.7rem, 11vw, 5.7rem);
+    line-height: .95
+}
+
+h1 em {
+    display: block;
+    color: var(--purple);
+    font-style: normal
+}
+
+.lead {
+    max-width: 470px;
+    margin: 24px 0 30px;
+    color: var(--muted)
+}
+
+.search-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 590px
+}
+
+.input-wrap {
+    display: flex;
+    align-items: center;
+    min-height: 56px;
+    padding: 0 16px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: #0f172add;
+    box-shadow: 0 18px 45px #0007;
+    backdrop-filter: blur(18px)
+}
+
+.input-wrap:focus-within {
+    border-color: var(--purple);
+    box-shadow: 0 0 0 1px #a5b4fc88, 0 20px 45px #000a
+}
+
+.input-wrap b {
+    margin-right: 10px;
+    color: var(--purple);
+    font-size: 1.2rem
+}
+
+.input-wrap input {
+    width: 100%;
+    min-width: 0;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: var(--text);
+    font: inherit
+}
+
+.input-wrap input::placeholder {
+    color: #6b7280
+}
+
+.clear {
+    padding: 0 2px;
+    border: 0;
+    background: transparent;
+    color: #6b7280;
+    font-size: 1.35rem;
+    cursor: pointer
+}
+
+.primary,
+.retry,
+.github-link {
+    border: 0;
+    border-radius: 999px;
+    font-weight: 700;
+    cursor: pointer
+}
+
+.primary {
+    min-height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #a3e635, #22c55e);
+    color: #020617;
+    box-shadow: 0 18px 45px #16a34a80;
+    transition: transform .18s, filter .18s
+}
+
+.primary:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.04)
+}
+
+.primary:disabled {
+    opacity: .6;
+    cursor: wait;
+    transform: none
+}
+
+.hint {
+    margin-top: 14px;
+    color: #6b7280;
+    font-size: .82rem
+}
+
+.example {
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--purple);
+    font-weight: 700;
+    text-decoration: underline;
+    cursor: pointer
+}
+
+.hero-art {
+    display: none
+}
+
+.results {
+    min-height: 300px;
+    padding: 70px 0 35px
+}
+
+.state {
+    display: flex;
+    min-height: 260px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center
+}
+
+.state h2 {
+    margin: 16px 0 8px;
+    font-size: 1.6rem
+}
+
+.state p {
+    max-width: 420px;
+    color: var(--muted)
+}
+
+.state-icon {
+    display: grid;
+    place-items: center;
+    width: 64px;
+    height: 64px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    background: radial-gradient(circle at top, #1f2937, #020617);
+    color: var(--purple);
+    font-size: 2rem;
+    box-shadow: 0 18px 40px #0009
+}
+
+.danger {
+    color: var(--danger)
+}
+
+.loader {
+    width: 42px;
+    height: 42px;
+    border: 3px solid var(--border);
+    border-top-color: var(--purple);
+    border-radius: 50%;
+    animation: spin .8s linear infinite
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg)
+    }
+}
+
+.hidden {
+    display: none !important
+}
+
+.dashboard {
+    animation: fade .35s ease
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+        transform: translateY(14px)
+    }
+
+    to {
+        opacity: 1;
+        transform: none
+    }
+}
+
+.profile-card,
+.stats article,
+.repo-card,
+.feature-grid article {
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    background: radial-gradient(circle at 0 0, #0b1120, #020617);
+    box-shadow: var(--shadow)
+}
+
+.profile-card {
+    padding: 22px;
+    align-items: center;
+}
+
+.identity {
+    display: flex;
+    align-items: center;
+    gap: 16px
+}
+
+.identity img {
+    width: 78px;
+    height: 78px;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    object-fit: cover;
+    background: #020617
+}
+
+.identity small,
+.features>div>small,
+.repo-heading small {
+    color: var(--purple);
+    font-size: .68rem;
+    font-weight: 700;
+    letter-spacing: .1em
+}
+
+.identity h2 {
+    margin: 5px 0 2px;
+    font-size: 1.55rem;
+    line-height: 1.1
+}
+
+.identity a {
+    color: var(--muted);
+    font-size: .9rem;
+    text-decoration: none
+}
+
+.github-link {
+    display: inline-flex;
+    margin-top: 20px;
+    padding: 10px 16px;
+    background: #020617;
+    color: var(--text);
+    font-size: .84rem;
+    border: 1px solid var(--border);
+    text-decoration: none
+}
+
+.github-link:hover {
+    border-color: var(--lime);
+    color: var(--lime)
+}
+
+.bio {
+    margin: 22px 0 16px;
+    color: var(--muted)
+}
+
+.details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 18px;
+    padding-top: 16px;
+    border-top: 1px dashed var(--border);
+    color: #6b7280;
+    font-size: .8rem
+}
+
+.details span:empty {
+    display: none
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin: 16px 0 60px
+}
+
+.stats article {
+    padding: 17px
+}
+
+.stats b {
+    display: block;
+    margin-bottom: 18px;
+    color: var(--purple);
+    font-size: 1.2rem
+}
+
+.stats small {
+    display: block;
+    color: var(--muted);
+    font-size: .75rem
+}
+
+.stats strong {
+    display: block;
+    font: 700 1.65rem "Space Grotesk"
+}
+
+.repo-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 18px
+}
+
+.repo-heading h2 {
+    margin: 5px 0 0;
+    font-size: 1.7rem
+}
+
+.repo-heading>span {
+    color: #6b7280;
+    font-size: .8rem
+}
+
+.repo-grid {
+    display: grid;
+    gap: 14px
+}
+
+.repo-card {
+    display: flex;
+    min-height: 190px;
+    flex-direction: column;
+    padding: 20px
+}
+
+.repo-card h3 {
+    margin: 0 0 8px;
+    color: var(--purple);
+    font-size: 1rem
+}
+
+.repo-card h3 a {
+    color: inherit;
+    text-decoration: none
+}
+
+.repo-card h3 a:hover {
+    text-decoration: underline
+}
+
+.repo-card p {
+    flex: 1;
+    margin: 0;
+    color: var(--muted);
+    font-size: .84rem
+}
+
+.repo-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 18px;
+    padding-top: 14px;
+    border-top: 1px dashed var(--border);
+    color: #6b7280;
+    font-size: .75rem
+}
+
+.features {
+    padding: 70px 0 10px;
+    border-top: 1px solid #0b1120
+}
+
+.features h2 {
+    max-width: 500px;
+    margin: 8px 0 26px;
+    font-size: 2rem;
+    line-height: 1.1
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px
+}
+
+.feature-grid article {
+    padding: 22px;
+    height: 100%
+}
+
+.feature-grid article>b {
+    color: var(--lime);
+    font: 700 1.8rem "Space Grotesk"
+}
+
+.feature-grid h3 {
+    margin: 22px 0 8px;
+    font-size: 1.15rem
+}
+
+.feature-grid p {
+    margin: 0;
+    color: var(--muted);
+    font-size: .88rem
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    padding: 28px 0 0;
+    text-align: center;
+    color: #6b7280;
+    font-size: .8rem
+}
+
+footer p {
+    margin: 0
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0)
+}
+
+@media(min-width:700px) {
+    .shell {
+        padding: 0 40px 50px
+    }
+
+    .header nav {
+        display: flex;
+        margin-left: auto;
+        margin-right: 28px
+    }
+
+    .hero {
+        padding: 80px 60px
+    }
+
+    .search-form {
+        flex-direction: row
+    }
+
+    .input-wrap {
+        flex: 1
+    }
+
+    .primary {
+        padding: 0 22px
+    }
+
+    .profile-card {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        padding: 28px
+    }
+
+    .bio,
+    .details {
+        grid-column: 1/-1
+    }
+
+    .github-link {
+        margin-top: 0;
+        justify-self: end
+    }
+
+    .stats {
+        grid-template-columns: repeat(4, 1fr)
+    }
+
+    .repo-grid {
+        grid-template-columns: repeat(2, 1fr)
+    }
+
+    .feature-grid {
+        grid-template-columns: repeat(3, 1fr)
+    }
+
+    footer {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left
+    }
+}
+
+@media(min-width:980px) {
+    .hero {
+        grid-template-columns: minmax(0, 1fr) 340px;
+        padding: 80px
+    }
+
+    .hero-art {
+        display: block;
+        position: relative;
+        height: 340px
+    }
+
+    .glow {
+        position: absolute;
+        inset: 40px 0 0;
+        border-radius: 50%;
+        background: radial-gradient(circle at top, #22c55e55, #818cf866, #020617);
+        filter: blur(35px)
+    }
+
+    .art-card {
+        position: absolute;
+        z-index: 2;
+        width: 210px;
+        padding: 16px 18px;
+        border: 1px solid #4b556366;
+        border-radius: 18px;
+        background: #020617e8;
+        box-shadow: 0 22px 45px #000d;
+        color: var(--text)
+    }
+
+    .art-card span {
+        display: block;
+        color: var(--lime);
+        font: 700 .78rem monospace
+    }
+
+    .art-card b {
+        display: block;
+        margin: 8px 0 2px;
+        font: 600 1.25rem "Space Grotesk"
+    }
+
+    .art-card small {
+        color: var(--muted)
+    }
+
+    .art-card.top {
+        top: 30px;
+        right: 10px;
+        transform: rotate(5deg)
+    }
+
+    .art-card.bottom {
+        bottom: 32px;
+        left: 12px;
+        transform: rotate(-6deg)
+    }
+
+    .art-center {
+        position: absolute;
+        z-index: 3;
+        top: 120px;
+        left: 118px;
+        display: grid;
+        place-items: center;
+        width: 110px;
+        height: 110px;
+        border: 1px solid #4b556366;
+        border-radius: 28px;
+        background: radial-gradient(circle at top, #a3e635, #22c55e);
+        color: #020617;
+        font: 700 1.1rem monospace;
+        box-shadow: 0 24px 50px #000e
+    }
+
+    .repo-grid {
+        grid-template-columns: repeat(3, 1fr)
+    }
+}
+
+@media(prefers-reduced-motion:reduce) {
+
+    *,
+    *:before,
+    *:after {
+        scroll-behavior: auto !important;
+        animation: none !important;
+        transition: none !important
+    }
+}
